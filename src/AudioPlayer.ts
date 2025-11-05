@@ -1,4 +1,5 @@
-import { AudioControl, Component } from './MultimediaComponent';
+import { Component } from './Component';
+import { AudioControl } from './AudioControl';
 
 export class AudioPlayer extends Component implements AudioControl {
   constructor() {
