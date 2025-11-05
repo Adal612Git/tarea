@@ -1,4 +1,4 @@
-import { NotificationService } from './interfaces/NotificationService';
+import { NotificationService } from './NotificationService';
 
 export class EmailNotificationService implements NotificationService {
   sendNotification(accountId: string, message: string): void {
