@@ -2,8 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditCardPayment = void 0;
 class CreditCardPayment {
-    pay(amount) {
-        console.log(`Paid ${amount} using Credit Card.`);
+    cardNumber;
+    cardHolder;
+    expiryMonth;
+    expiryYear;
+    cvv;
+    constructor(cardNumber, cardHolder, expiryMonth, expiryYear, cvv) {
+        this.cardNumber = cardNumber;
+        this.cardHolder = cardHolder;
+        this.expiryMonth = expiryMonth;
+        this.expiryYear = expiryYear;
+        this.cvv = cvv;
+    }
+    execute() {
+        console.log("Method: Credit Card");
+        console.log(`Card number: ${this.cardNumber}`);
     }
 }
 exports.CreditCardPayment = CreditCardPayment;

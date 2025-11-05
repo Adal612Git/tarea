@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const BankTransferPayment_1 = require("./BankTransferPayment");
+const p = new BankTransferPayment_1.BankTransferPayment('1234567890', 'JPMorgan Chase');
+console.log('--- Object.getOwnPropertyNames(p) ---');
+console.log(Object.getOwnPropertyNames(p));
+console.log('--- Object.keys(p) ---');
+console.log(Object.keys(p));
+console.log('--- (p as any).accountNumber ---');
+console.log(p.accountNumber);
+console.log('--- (p as any)._accountNumber ---');
+console.log(p._accountNumber);
+console.log('--- descriptor accountNumber ---');
+console.log(Object.getOwnPropertyDescriptor(p, 'accountNumber'));
+console.log('--- prototype props ---');
+console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(p)));
+p.execute();

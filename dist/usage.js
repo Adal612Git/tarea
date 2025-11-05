@@ -2,8 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const CreditCardPayment_1 = require("./CreditCardPayment");
 const PaypalPayment_1 = require("./PaypalPayment");
+const BankTransferPayment_1 = require("./BankTransferPayment");
 const PaymentProcessor_1 = require("./PaymentProcessor");
-const credit = new PaymentProcessor_1.PaymentProcessor(new CreditCardPayment_1.CreditCardPayment());
-credit.process(100);
-const paypal = new PaymentProcessor_1.PaymentProcessor(new PaypalPayment_1.PaypalPayment());
-paypal.process(200);
+const processor = new PaymentProcessor_1.PaymentProcessor();
+const credit = new CreditCardPayment_1.CreditCardPayment("1234567812345678", "John Doe", 12, 2023, 123);
+const paypal = new PaypalPayment_1.PaypalPayment("johndoe@example.com", "password");
+const bank = new BankTransferPayment_1.BankTransferPayment("1234567890", "JPMorgan Chase");
+processor.processPayment(credit);
+processor.processPayment(paypal);
+processor.processPayment(bank);
