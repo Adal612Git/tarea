@@ -1,4 +1,5 @@
 import { Payment } from "./Payment";
+console.log(">>> DEBUG BankTransferPayment file loaded <<<");
 
 export class BankTransferPayment implements Payment {
   private accountNumber: string;
