@@ -1,27 +1,27 @@
-import { MultimediaComponent } from './MultimediaComponent';
+import { AudioControl, Component, VideoControl } from './MultimediaComponent';
 
 export class Handler {
-  onPlayAudio(components: MultimediaComponent[]): void {
-    components.forEach((component) => component.playAudio());
+  onPlayAudio(...audioPlayers: AudioControl[]): void {
+    audioPlayers.forEach((player) => player.playAudio());
   }
 
-  onStopAudio(components: MultimediaComponent[]): void {
-    components.forEach((component) => component.stopAudio());
+  onStopAudio(...audioPlayers: AudioControl[]): void {
+    audioPlayers.forEach((player) => player.stopAudio());
   }
 
-  onPlayVideo(components: MultimediaComponent[]): void {
-    components.forEach((component) => component.playVideo());
+  onPlayVideo(...videoPlayers: VideoControl[]): void {
+    videoPlayers.forEach((player) => player.playVideo());
   }
 
-  onStopVideo(components: MultimediaComponent[]): void {
-    components.forEach((component) => component.stopVideo());
+  onStopVideo(...videoPlayers: VideoControl[]): void {
+    videoPlayers.forEach((player) => player.stopVideo());
   }
 
-  onInitComponents(components: MultimediaComponent[]): void {
+  onInitComponents(...components: Component[]): void {
     components.forEach((component) => component.init());
   }
 
-  onDestroyComponents(components: MultimediaComponent[]): void {
+  onDestroyComponents(...components: Component[]): void {
     components.forEach((component) => component.destroy());
   }
 }

@@ -1,35 +1,35 @@
-import { MultimediaComponent } from './MultimediaComponent';
+import { AudioControl, Component, VideoControl } from './MultimediaComponent';
 
-export class MediaPlayer extends MultimediaComponent {
+export class MediaPlayer extends Component implements AudioControl, VideoControl {
   constructor() {
     super();
 
     console.log('MediaPlayer created');
   }
 
-  init() {
+  init(): void {
     super.init();
     console.log('Multimedia resources initialized');
   }
 
-  destroy() {
+  destroy(): void {
     console.log('Multimedia resources released');
     super.destroy();
   }
 
-  playAudio() {
+  playAudio(): void {
     console.log('MediaPlayer plays audio');
   }
 
-  stopAudio() {
+  stopAudio(): void {
     console.log('MediaPlayer stops audio');
   }
 
-  playVideo() {
+  playVideo(): void {
     console.log('MediaPlayer plays video');
   }
 
-  stopVideo() {
+  stopVideo(): void {
     console.log('MediaPlayer stops video');
   }
 }
