@@ -1,14 +1,7 @@
-export class PaypalPayment {
-  private email: string;
-  private password: string;
+import { Payment } from "./Payment";
 
-  constructor(email: string, password: string) {
-    this.email = email;
-    this.password = password;
-  }
-
-  executePaypalPayment() {
-    console.log('Method: PayPal');
-    console.log(`Email: ${this.email}`);
+export class PaypalPayment implements Payment {
+  pay(amount: number): void {
+    console.log(`Paid ${amount} using PayPal.`);
   }
 }

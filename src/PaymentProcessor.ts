@@ -1,16 +1,9 @@
-import { CreditCardPayment } from './CreditCardPayment';
-import { PaypalPayment } from './PaypalPayment';
+import { Payment } from "./Payment";
 
 export class PaymentProcessor {
-  processPayment(payment: object) {
-    console.log('Processing payment...');
+  constructor(private payment: Payment) {}
 
-    if (payment instanceof CreditCardPayment) {
-      payment.executeCreditCardPayment();
-    } else if (payment instanceof PaypalPayment) {
-      payment.executePaypalPayment();
-    }
-
-    console.log('Done.');
+  process(amount: number): void {
+    this.payment.pay(amount);
   }
 }
