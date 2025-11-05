@@ -1,4 +1,4 @@
-import { Payment } from "./Payment";
+import { Payment } from './Payment';
 
 export class PaypalPayment implements Payment {
   private email: string;
@@ -10,7 +10,7 @@ export class PaypalPayment implements Payment {
   }
 
   public execute(): void {
-    console.log("Method: PayPal");
+    console.log('Method: PayPal');
     console.log(`Email: ${this.email}`);
   }
 }
