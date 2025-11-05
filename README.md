@@ -95,3 +95,17 @@ Loading image content...
 Below is an example of a class diagram after refactoring:
 
 ![This image can be found in the project repository. File: diagram.png](diagram.png)
+
+## Implementation Notes
+
+- `File.open` now delegates the decision of whether a file supports write mode to the new `canBeOpenedInWriteMode` hook. If the hook returns `false`, the request silently falls back to read mode to keep the polymorphic contract intact.
+- `TextFile` overrides `canBeOpenedInWriteMode` so that only files smaller than `1024` bytes can be opened in write mode, while keeping the default mode as read.
+- `ImageFile` relies on the base implementation and no longer throws errors when write mode is requested; it simply opens in read mode.
+
+## Running the Tests
+
+```bash
+npm test -- --passWithNoTests
+```
+
+> The project does not include automated tests, so Jest reports "No tests found" while still exiting with status code `0` when run with `--passWithNoTests`.
