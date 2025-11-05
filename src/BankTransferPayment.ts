@@ -13,13 +13,4 @@ export class BankTransferPayment implements Payment {
     console.log("Method: Bank Transfer");
     console.log("Bank: " + this.bankName + ", Account Number: " + this.accountNumber);
   }
-
-  // ✅ Getters para los tests automáticos
-  public getAccountNumber(): string {
-    return this.accountNumber;
-  }
-
-  public getBankName(): string {
-    return this.bankName;
-  }
 }
