@@ -1,4 +1,4 @@
-import { Payment } from "./Payment";
+import { Payment } from './Payment';
 
 export class CreditCardPayment implements Payment {
   private cardNumber: string;
@@ -22,7 +22,7 @@ export class CreditCardPayment implements Payment {
   }
 
   public execute(): void {
-    console.log("Method: Credit Card");
+    console.log('Method: Credit Card');
     console.log(`Card number: ${this.cardNumber}`);
   }
 }
