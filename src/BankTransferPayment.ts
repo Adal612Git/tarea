@@ -1,16 +1,16 @@
 import { Payment } from "./Payment";
 
 export class BankTransferPayment implements Payment {
-  private accountNumber: string;
-  private bankName: string;
+  private _accountNumber: string;
+  private _bankName: string;
 
   constructor(accountNumber: string, bankName: string) {
-    this.accountNumber = accountNumber;
-    this.bankName = bankName;
+    this._accountNumber = accountNumber;
+    this._bankName = bankName;
   }
 
   public execute(): void {
     console.log("Method: Bank Transfer");
-    console.log(`Bank: ${this.bankName}, Account Number: ${this.accountNumber}`);
+    console.log(`Bank: ${this._bankName}, Account Number: ${this._accountNumber}`);
   }
 }
