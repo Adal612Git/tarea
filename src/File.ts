@@ -9,6 +9,13 @@ export class File {
 
   open(mode: 'read' | 'write' = 'read'): void {
     console.log(`Opening file: ${this.name}`);
-    console.log(`Initiating ${mode} mode`);
+
+    const finalMode = mode === 'write' && this.canBeOpenedInWriteMode() ? 'write' : 'read';
+
+    console.log(`Initiating ${finalMode} mode`);
+  }
+
+  protected canBeOpenedInWriteMode(): boolean {
+    return false;
   }
 }
