@@ -1,7 +1,7 @@
 import { NotificationService } from './interfaces/NotificationService';
 
-export class DefaultNotificationService implements NotificationService {
+export class SmsNotificationService implements NotificationService {
   sendNotification(accountId: string, message: string): void {
-    console.log(`Sending notification to ${accountId}: ${message}`);
+    console.log(`Sending sms to ${accountId}: ${message}`);
   }
 }

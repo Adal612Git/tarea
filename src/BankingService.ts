@@ -1,19 +1,39 @@
-import { DefaultAccountService } from './DefaultAccountService';
-import { DefaultTransactionService } from './DefaultTransactionService';
-import { DefaultNotificationService } from './DefaultNotificationService';
+import { AccountService } from './interfaces/AccountService';
+import { TransactionService } from './interfaces/TransactionService';
+import { NotificationService } from './interfaces/NotificationService';
 
 export class BankingService {
-  private accountService: DefaultAccountService;
-  private transactionService: DefaultTransactionService;
-  private notificationService: DefaultNotificationService;
+  private accountService: AccountService | null;
+  private transactionService: TransactionService | null;
+  private notificationService: NotificationService | null;
 
-  constructor() {
-    this.accountService = new DefaultAccountService();
-    this.transactionService = new DefaultTransactionService();
-    this.notificationService = new DefaultNotificationService();
+  constructor(
+    accountService?: AccountService | null,
+    transactionService?: TransactionService | null,
+    notificationService?: NotificationService | null
+  ) {
+    this.accountService = accountService ?? null;
+    this.transactionService = transactionService ?? null;
+    this.notificationService = notificationService ?? null;
   }
 
-  processTransaction(accountId: string, amount: number) {
+  setAccountService(accountService: AccountService): void {
+    this.accountService = accountService;
+  }
+
+  setTransactionService(transactionService: TransactionService): void {
+    this.transactionService = transactionService;
+  }
+
+  setNotificationService(notificationService: NotificationService): void {
+    this.notificationService = notificationService;
+  }
+
+  processTransaction(accountId: string, amount: number): void {
+    if (!this.accountService || !this.transactionService || !this.notificationService) {
+      throw new Error('BankingService dependencies are not fully configured.');
+    }
+
     if (this.accountService.isAccountActive(accountId)) {
       this.transactionService.executeTransaction(accountId, amount);
       this.notificationService.sendNotification(accountId, 'Transaction completed');
