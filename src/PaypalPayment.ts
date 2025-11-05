@@ -1,12 +1,16 @@
 import { Payment } from "./Payment";
 
 export class PaypalPayment implements Payment {
-  constructor(private email: string, private password: string) {}
+  private email: string;
+  private password: string;
 
-  execute(): void {
-    console.log("Processing payment...");
+  constructor(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+  }
+
+  public execute(): void {
     console.log("Method: PayPal");
     console.log(`Email: ${this.email}`);
-    console.log("Done.");
   }
 }
