@@ -1,4 +1,6 @@
-import { AudioControl, Component, VideoControl } from './MultimediaComponent';
+import { AudioControl } from './AudioControl';
+import { Component } from './Component';
+import { VideoControl } from './VideoControl';
 
 export class Handler {
   onPlayAudio(...audioPlayers: AudioControl[]): void {

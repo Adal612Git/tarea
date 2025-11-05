@@ -1,4 +1,5 @@
-import { Component, VideoControl } from './MultimediaComponent';
+import { Component } from './Component';
+import { VideoControl } from './VideoControl';
 
 export class VideoPlayer extends Component implements VideoControl {
   constructor() {
