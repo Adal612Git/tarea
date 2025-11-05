@@ -1,4 +1,4 @@
-import { AccountService } from './interfaces/AccountService';
+import { AccountService } from './AccountService';
 
 export class DefaultAccountService implements AccountService {
   isAccountActive(accountId: string): boolean {

@@ -1,6 +1,6 @@
-import { AccountService } from './interfaces/AccountService';
-import { TransactionService } from './interfaces/TransactionService';
-import { NotificationService } from './interfaces/NotificationService';
+import { AccountService } from './AccountService';
+import { TransactionService } from './TransactionService';
+import { NotificationService } from './NotificationService';
 
 export class BankingService {
   private accountService: AccountService | null;

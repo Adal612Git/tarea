@@ -1,4 +1,4 @@
-import { TransactionService } from './interfaces/TransactionService';
+import { TransactionService } from './TransactionService';
 
 export class DefaultTransactionService implements TransactionService {
   executeTransaction(accountId: string, amount: number): void {
